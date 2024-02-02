@@ -1,263 +1,277 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>EQUB System</title>
     <style>
-@import url("https://fonts.googleapis.com/css?family=Oswald&display=swap");
+      @import url("https://fonts.googleapis.com/css?family=Oswald&display=swap");
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-image: url('equb.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-image: url("equb.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
 
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    
-}
+      h1 {
+        text-align: center;
+      }
 
-h1 {
-    text-align: center;
-}
+      /* Styling for the form container */
+      .form-container {
+        background-color: aliceblue;
+        padding: 20px;
+        margin-right: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        width: 750px; /* Set the width to occupy the full width within the .flex-container */
+      }
 
-/* Styling for the form container */
-.form-container {
-    background-color:aliceblue;
-    padding: 20px;
-    margin-right: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    width: 750px; /* Set the width to occupy the full width within the .flex-container */
-}
+      form {
+        width: 100%;
+        max-width: 750px; /* Limit the form width within the container */
+      }
 
+      label {
+        margin-bottom: 5px;
+      }
 
+      input,
+      select {
+        padding: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+      }
 
-form {
-    width: 100%;
-    max-width: 750px; /* Limit the form width within the container */
-}
+      button {
+        padding: 8px 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+      }
 
-label {
-    margin-bottom: 5px;
-}
+      button:hover {
+        background-color: #45a049;
+      }
 
-input, select {
-    padding: 5px;
-    margin-bottom: 10px;
-    width: 100%;
-}
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
 
-button {
-    padding: 8px 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-}
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+        background-color: aliceblue;
+      }
 
-button:hover {
-    background-color: #45a049;
-}
+      tr:nth-child(even) {
+        background-color: aquamarine;
+      }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
+      /* Flexbox layout for the form and table */
+      .flex-container {
+        display: flex;
+        justify-content: center; /* Center the elements horizontally */
+        align-items: flex-start; /* Align the elements to the top of the container */
+      }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-    background-color: aliceblue;
-    
-}
+      #winnerDisplay {
+        text-align: center;
+        margin: 20px auto; /* Center the box horizontally and provide top and bottom margin */
+        animation: fadeInOut 2s ease-in-out;
+        flex: 100%;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 400px; /* Set the maximum width of the box */
+      }
+      header {
+        background-color: ; /* You can change this to your desired background color */
+        padding: 10px;
+        text-align: right;
+      }
 
-tr:nth-child(even) {
-    background-color:aquamarine;
-}
+      .logo-container {
+        max-width: 200px; /* Adjust the max-width as needed */
+        margin: 0 auto;
+      }
 
-/* Flexbox layout for the form and table */
-.flex-container {
-    display: flex;
-    justify-content: center; /* Center the elements horizontally */
-    align-items: flex-start;/* Align the elements to the top of the container */
-}
-
-#winnerDisplay {
-    text-align: center;
-    margin: 20px auto; /* Center the box horizontally and provide top and bottom margin */
-    animation: fadeInOut 2s ease-in-out;
-    flex: 100%;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 400px; /* Set the maximum width of the box */
-}
-
-
-
-
-
-
-
-
+      .logo-container img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>EQUB System</h1>
-        <div class="flex-container">
-         <div class="form-container">
-             <form id="equbForm">
-             <label for="name">Name:</label>
-             <input type="text" id="name" required>
-             <label for="money">Deposited Money:</label>
-             <input type="number" id="money" required>
-             <label for="time">Time Period:</label>
-             <select id="time">
-                 <option value="weekly">Weekly</option>
-                <option value="monthly">Monthly</option>
-                <option value="daily">Daily</option>
-             </select>
-              <button type="submit">Submit</button><br><br>
-             </form>
-             <button id="selectWinnerBtn">Select Winner</button>
-            </div>
-        
+      <header>
+        <div class="logo-container">
+          <img src="images.jpeg" alt="Logo" />
         </div>
-         <table id="equbTable">
-            <tr>
-                <th>Name</th>
-                <th>Deposited Money</th>
-                <th>Time Period</th>
-                <th>Position</th>
-                <th>Expected Date</th>
-            </tr>
-         </table>
-         <div id="winnerDisplay"></div>
-
+      </header>
+      <h1>EQUB System</h1>
+      <div class="flex-container">
+        <div class="form-container">
+          <form id="equbForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required />
+            <label for="money">Deposited Money:</label>
+            <input type="number" id="money" required />
+            <label for="time">Time Period:</label>
+            <select id="time">
+              <option value="weekly">Weekly</option>
+              <option value="monthly">Monthly</option>
+              <option value="daily">Daily</option>
+            </select>
+            <button type="submit">Submit</button><br /><br />
+          </form>
+          <button id="selectWinnerBtn">Select Winner</button>
+        </div>
+      </div>
+      <table id="equbTable">
+        <tr>
+          <th>Name</th>
+          <th>Deposited Money</th>
+          <th>Time Period</th>
+          <th>Position</th>
+          <th>Expected Date</th>
+        </tr>
+      </table>
+      <div id="winnerDisplay"></div>
     </div>
     <script>
-      const equbForm = document.getElementById('equbForm');
-const equbTable = document.getElementById('equbTable');
-const winnerDisplay = document.getElementById('winnerDisplay');
-const selectWinnerBtn = document.getElementById('selectWinnerBtn');
+      const equbForm = document.getElementById("equbForm");
+      const equbTable = document.getElementById("equbTable");
+      const winnerDisplay = document.getElementById("winnerDisplay");
+      const selectWinnerBtn = document.getElementById("selectWinnerBtn");
 
-// Array to store equb data
-let equbData = [];
+      // Array to store equb data
+      let equbData = [];
 
-// Function to add a new equb entry to the array and update the table
-function addEqubEntry(event) {
-    event.preventDefault();
+      // Function to add a new equb entry to the array and update the table
+      function addEqubEntry(event) {
+        event.preventDefault();
 
-    const nameInput = document.getElementById('name');
-    const moneyInput = document.getElementById('money');
-    const timeSelect = document.getElementById('time');
+        const nameInput = document.getElementById("name");
+        const moneyInput = document.getElementById("money");
+        const timeSelect = document.getElementById("time");
 
-    const name = nameInput.value;
-    const money = parseFloat(moneyInput.value);
-    const time = timeSelect.value;
+        const name = nameInput.value;
+        const money = parseFloat(moneyInput.value);
+        const time = timeSelect.value;
 
-    // Check if the input fields are not empty and money is a positive number
-    if (name.trim() === '' || isNaN(money) || money <= 0) {
-        alert('Please enter valid values.');
-        return;
-    }
+        // Check if the input fields are not empty and money is a positive number
+        if (name.trim() === "" || isNaN(money) || money <= 0) {
+          alert("Please enter valid values.");
+          return;
+        }
 
-    // Create a new equb entry object
-    const equbEntry = {
-        name: name,
-        money: money,
-        time: time,
-    };
+        // Create a new equb entry object
+        const equbEntry = {
+          name: name,
+          money: money,
+          time: time,
+        };
 
-    // Add the equb entry to the array
-    equbData.push(equbEntry);
+        // Add the equb entry to the array
+        equbData.push(equbEntry);
 
-    // Clear the input fields
-    nameInput.value = '';
-    moneyInput.value = '';
+        // Clear the input fields
+        nameInput.value = "";
+        moneyInput.value = "";
 
-    // Update the table
-    updateEqubTable();
-}
+        // Update the table
+        updateEqubTable();
+      }
 
-// Function to update the equb table with the data from the array
-function updateEqubTable() {
-    // Clear existing rows from the table
-    while (equbTable.rows.length > 1) {
-        equbTable.deleteRow(1);
-    }
+      // Function to update the equb table with the data from the array
+      function updateEqubTable() {
+        // Clear existing rows from the table
+        while (equbTable.rows.length > 1) {
+          equbTable.deleteRow(1);
+        }
 
-    // Sort the array by deposited money in descending order
-    equbData.sort((a, b) => b.money - a.money);
+        // Sort the array by deposited money in descending order
+        equbData.sort((a, b) => b.money - a.money);
 
-    // Add new rows to the table
-    equbData.forEach((entry, index) => {
-        const newRow = equbTable.insertRow();
-        const nameCell = newRow.insertCell();
-        const moneyCell = newRow.insertCell();
-        const timeCell = newRow.insertCell();
-        const positionCell = newRow.insertCell();
-        const expectedDateCell = newRow.insertCell();
-        nameCell.textContent = entry.name;
-        moneyCell.textContent = entry.money;
-        timeCell.textContent = entry.time;
-        positionCell.textContent = index + 1;
-        expectedDateCell.textContent = calculateExpectedDate(index + 1);
-    });
-}
+        // Add new rows to the table
+        equbData.forEach((entry, index) => {
+          const newRow = equbTable.insertRow();
+          const nameCell = newRow.insertCell();
+          const moneyCell = newRow.insertCell();
+          const timeCell = newRow.insertCell();
+          const positionCell = newRow.insertCell();
+          const expectedDateCell = newRow.insertCell();
+          nameCell.textContent = entry.name;
+          moneyCell.textContent = entry.money;
+          timeCell.textContent = entry.time;
+          positionCell.textContent = index + 1;
+          expectedDateCell.textContent = calculateExpectedDate(index + 1);
+        });
+      }
 
-// Function to calculate the expected date based on the position in the waiting list
-function calculateExpectedDate(position) {
-    const currentDate = new Date();
-    const timePeriod = document.getElementById('time').value;
-    const daysInTimePeriod = {
-        weekly: 7,
-        monthly: 30,
-        daily: 1
-    };
-    const daysToAdd = (position - 1) * daysInTimePeriod[timePeriod];
-    const expectedDate = new Date(currentDate.getTime() + daysToAdd * 24 * 60 * 60 * 1000);
-    return expectedDate.toDateString();
-}
+      // Function to calculate the expected date based on the position in the waiting list
+      function calculateExpectedDate(position) {
+        const currentDate = new Date();
+        const timePeriod = document.getElementById("time").value;
+        const daysInTimePeriod = {
+          weekly: 7,
+          monthly: 30,
+          daily: 1,
+        };
+        const daysToAdd = (position - 1) * daysInTimePeriod[timePeriod];
+        const expectedDate = new Date(
+          currentDate.getTime() + daysToAdd * 24 * 60 * 60 * 1000
+        );
+        return expectedDate.toDateString();
+      }
 
-// Function to randomly select a winner and display the result
-function selectWinner() {
-    if (equbData.length === 0) {
-        alert('No data to select winner.');
-        return;
-    }
+      // Function to randomly select a winner and display the result
+      function selectWinner() {
+        if (equbData.length === 0) {
+          alert("No data to select winner.");
+          return;
+        }
 
-    const randomIndex = Math.floor(Math.random() * equbData.length);
-    const winner = equbData[randomIndex];
+        const randomIndex = Math.floor(Math.random() * equbData.length);
+        const winner = equbData[randomIndex];
 
-    // Remove the winner's entry from the array
-    equbData.splice(randomIndex, 1);
+        // Remove the winner's entry from the array
+        equbData.splice(randomIndex, 1);
 
-    // Display the winner and the sum of money deposited
-    winnerDisplay.innerHTML = `<p>Winner: ${winner.name}</p><p>Total Money Deposited: ${equbData.reduce((total, entry) => total + entry.money, 0)}</p>`;
+        // Display the winner and the sum of money deposited
+        winnerDisplay.innerHTML = `<p>Winner: ${
+          winner.name
+        }</p><p>Total Money Deposited: ${equbData.reduce(
+          (total, entry) => total + entry.money,
+          0
+        )}</p>`;
 
-    // Update the table after removing the winner
-    updateEqubTable();
-}
+        // Update the table after removing the winner
+        updateEqubTable();
+      }
 
-// Add event listeners
-equbForm.addEventListener('submit', addEqubEntry);
-selectWinnerBtn.addEventListener('click', selectWinner);
-
-
+      // Add event listeners
+      equbForm.addEventListener("submit", addEqubEntry);
+      selectWinnerBtn.addEventListener("click", selectWinner);
     </script>
-</body>
+  </body>
 </html>
